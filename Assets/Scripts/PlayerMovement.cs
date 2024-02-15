@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 movement;
+    private bool isMoving;
 
     void Start()
     {
@@ -23,7 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
         movement.Normalize();
 
-        if (movement != Vector2.zero)
+        isMoving = movement != Vector2.zero;
+
+        animator.SetBool("IsMoving", isMoving);
+        if (isMoving)
         {
             animator.SetFloat("InputX", movement.x);
             animator.SetFloat("InputY", movement.y);
