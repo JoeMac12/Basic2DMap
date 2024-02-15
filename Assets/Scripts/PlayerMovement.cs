@@ -23,13 +23,10 @@ public class PlayerMovement : MonoBehaviour
 
         movement.Normalize();
 
-        animator.SetFloat("InputX", movement.x);
-        animator.SetFloat("InputY", movement.y);
-
         if (movement != Vector2.zero)
         {
-            animator.SetFloat("LastMoveX", movement.x);
-            animator.SetFloat("LastMoveY", movement.y);
+            animator.SetFloat("InputX", movement.x);
+            animator.SetFloat("InputY", movement.y);
         }
     }
 
